@@ -1,0 +1,35 @@
+<%- include("./partials/header") %>
+
+
+<div class="container mt-5 py-5">
+    <h3>All Posts 😊 </h3>
+
+    <% var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour : "numeric", minute : "numeric"} %>
+
+    <% allBlogs.reverse() %>
+
+    <% allBlogs.forEach(Blog=>{ %>
+    <div class="card mb-5">
+        <div class="card-body mt-3">
+
+            <h5 class="card-title"><%= Blog.title %></h5>
+            <div class="card-subtitle text-muted mb-2"> Posted on: <%=Blog.postedOn.toLocaleString("en-us", options)%> </div>
+            <p class="card-text"><%= Blog.content.substring(0,100) %> ...<a href="/blog/<%= Blog._id %>" class = "text-decoration-none"> Read More</a></p>
+            <a href="/blog/<%= Blog._id %>" class="btn btn-primary">Read More</a>
+            <a href="/edit/<%= Blog._id %>" class="btn btn-secondary">Edit</a>
+            <a href="/delete/<%= Blog._id %>" class="btn btn-danger">Delete</a>
+
+        </div>
+    </div>
+    <% }) %>
+</div>
+
+<div class="container mb-3" ><a href="/compose" class="btn btn-warning py-3"> Compose new Post</a></div>
+
+
+
+
+
+
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,31 @@
+<%- include("./partials/header") %>
+
+
+
+<div class="container mt-5 py-5">
+    <h2><%= singleBlog.title%> </h3>
+    
+
+    <% var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour : "numeric", minute : "numeric"} %>
+
+
+
+    <div class="card mb-5">
+        <div class="card-body mt-3">
+
+            <h5 class="card-title"><%= singleBlog.title%> 😊 </h5>
+            <div class="card-subtitle text-muted mb-2"> Posted on: <%= singleBlog.postedOn.toLocaleString("en-us", options)%> </div>
+            <p class="card-text"><%= singleBlog.content %></p>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<%- include("./partials/footer") %>
